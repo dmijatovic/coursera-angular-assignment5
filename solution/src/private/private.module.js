@@ -62,7 +62,7 @@ function signUpCtrl(userSvc){
     signup.firstName = userSvc.cred.firstName;
     signup.lastName = userSvc.cred.lastName;
     //default status 
-    signup.status = "Click on the button to signup. * fields are required.";
+    signup.status = "* fields are required.";
 
     //submit info 
     signup.submit = function(){
