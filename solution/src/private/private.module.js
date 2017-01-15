@@ -5,7 +5,7 @@ let admin = angular.module('admin',['ui.router','common']);
 
 //-----------------------------
 // DEFINE constants
-admin.constant('apiPath','https://davids-restaurant.herokuapp.com/')
+admin.constant('apiPath','https://dmijat-backend-assignment5.herokuapp.com/')
 
 //-----------------------------
 // DEFINE ROUTES 
@@ -61,6 +61,9 @@ function signUpCtrl(userSvc){
     //copy values from the service 
     signup.firstName = userSvc.cred.firstName;
     signup.lastName = userSvc.cred.lastName;
+    signup.email = userSvc.cred.email;
+    signup.phone = userSvc.cred.phone;
+    signup.favDish = userSvc.cred.favDish.short_name;
     //default status 
     signup.status = "* fields are required.";
 
@@ -73,14 +76,17 @@ function signUpCtrl(userSvc){
             lastName: signup.lastName,
             email: signup.email,
             phone: signup.phone,
-            favDish: signup.favDish
+            favDish: []
         }
         //
         signup.status = "Checking you favorite dish....";
         //pass to service 
         userSvc.checkDish(signup.favDish)
             .then((resp)=>{
-                //if get response - save user 
+                //if get response 
+                //save dish to user 
+                cred.favDish=resp;
+                //sign up user 
                 userSvc.signUp(cred);
                 //communicate
                 signup.status = "Your information has been saved!";

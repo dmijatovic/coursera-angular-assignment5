@@ -7,7 +7,7 @@ angular.module('admin')
     template:`
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Welkom {{$ctrl.cred.firstName}}</h3>
+                <h3 class="panel-title">Welcome {{$ctrl.cred.firstName}}</h3>
             </div>
             
             <table class="table" style="color:#333333;">
@@ -15,10 +15,15 @@ angular.module('admin')
                 <tr><th>Last name</th><td>{{$ctrl.cred.lastName}}</td></tr>
                 <tr><th>Email</th><td>{{$ctrl.cred.email}}</td></tr>
                 <tr><th>Phone</th><td>{{$ctrl.cred.phone}}</td></tr>
+                <tr><th>Your favourite dish</th><td>
+                    <menu-item 
+                        menu-item="$ctrl.cred.favDish">
+                    </menu-item>
+                </td></tr>
             </table>
 
             <div class="panel-body">
-                <p class="well">Your favorite dish is: {{$ctrl.cred.favDish}}</p>
+                <!-- here nothing -->
             </div>
         </div>
     `

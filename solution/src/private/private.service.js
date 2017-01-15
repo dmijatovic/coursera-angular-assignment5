@@ -4,12 +4,12 @@
 angular.module('admin')
 .service('userInfoSvc',[
     //dependencies
-    '$http','apiPath','$q',
+    '$http','ApiPath','$q',
     //main service function 
     userInfoSvc
 ]);
 
-function userInfoSvc($http,apiPath,$q){
+function userInfoSvc($http,ApiPath,$q){
     let userSvc = this;
 
     //create cred object 
@@ -24,7 +24,16 @@ function userInfoSvc($http,apiPath,$q){
     //create request
     userSvc.checkDish = function(shortName){
         let q = $q.defer();
-
+        let path = ApiPath + '/menu_items/' + shortName + ".json"; 
+        $http.get(path)
+            .then((resp)=>{
+                //resolve data
+                q.resolve(resp.data);    
+            })  
+            .catch((err)=>{
+                //reject 
+                q.reject(err);
+            })      
         //simulate asinc
         setTimeout(()=>{
             q.resolve(true);
