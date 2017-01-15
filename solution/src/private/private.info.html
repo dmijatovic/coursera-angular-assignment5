@@ -1,0 +1,13 @@
+<div class="container">
+    <!-- if signed in -->
+    <div data-ng-if="user.signed">
+        <h1>My info</h1>
+        <!--info component-->
+        <dv4-user-info></dv4-user-info>
+    </div>
+    <!-- if not signed in-->
+    <div data-ng-if="!user.signed">
+        <h1>Sign up!</h1>
+        <p>You need to <a ui-sref="private.signup">sign up first</a></p>
+    </div>
+</div>

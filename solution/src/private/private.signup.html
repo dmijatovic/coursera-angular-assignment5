@@ -1,0 +1,108 @@
+<div class="container">
+
+<h1>Sign up!</h1>
+<p>For our newsletter that will never come :-)</p>
+
+<form name="signupForm" novalidate>
+    <div class="row">
+        <div class="col-md-6">
+            
+            <div class="input-group">
+                <span class="input-group-addon" style="min-width:120px;text-align:left;">First name *</span>
+                <input type="text" 
+                    data-ng-model='signup.firstName'
+                    name="firstName"
+                    placeholder="Your first name"
+                    class="form-control" 
+                    minlength="2"
+                    required />
+            </div>
+
+            <span data-ng-show="signupForm.firstName.$invalid && signupForm.firstName.$touched">
+                First name is required and need to be > 1 chars.
+            </span>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" style="min-width:120px;text-align:left;">Last name *</span>
+                <input type="text" 
+                    data-ng-model='signup.lastName'
+                    name="lastName"
+                    placeholder="Your last name"
+                    class="form-control"
+                    minlength="2" 
+                    required />
+            </div>
+            <span data-ng-show="signupForm.lastName.$invalid && signupForm.lastName.$touched">
+                Last name is required and need to be > 1 chars.
+            </span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" style="min-width:120px;text-align:left;">Email *</span>
+                <input type="email" 
+                    data-ng-model='signup.email'
+                    name="email"
+                    placeholder="Your email @something.com"
+                    class="form-control" 
+                    required />
+            </div>
+            <span data-ng-show="signupForm.email.$invalid && signupForm.email.$touched">
+                Email is required and need to have at leas @domain.
+            </span>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" style="min-width:120px;text-align:left;">Telephone</span>
+                <input type="text" 
+                    data-ng-model='signup.phone'
+                    name="phone"
+                    pattern="(\d{2})-(\d{2})-(\d{4})"
+                    placeholder="Your phone number ##-##-###"
+                    class="form-control" 
+                    minlength="7"/>
+            </div>
+            <span data-ng-show="signupForm.phone.$invalid && signupForm.phone.$touched">
+                Phone is not required but if provided it need follow the pattern ##-##-####.
+            </span>
+        </div>
+    </div>
+    <br/>  
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <span class="input-group-addon" style="min-width:200px;text-align:left;">Your favorite dish *</span>
+                <input type="text" 
+                    data-ng-model='signup.favDish'
+                    name="favDish"
+                    placeholder="Please provide dish code only, A6 for example"
+                    class="form-control" 
+                    ng-maxlength="4"
+                    required />
+            </div>
+            <span data-ng-show="signupForm.favDish.$invalid && signupForm.favDish.$touched">
+                Your favorite dish is required and it need to have max 4 chars.
+            </span>
+            <span data-ng-show="signup.favDishMsg">
+                {{signup.favDishMsg}}
+            </span>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-xs-4">
+            <button 
+                data-ng-disabled="signupForm.$invalid"
+                data-ng-click="signup.submit()" 
+                class="btn btn-primary">Sign up</button>
+        </div>
+        <div class="col-xs-8">
+            <span>{{signup.status}}</span>
+        </div>
+    </div>
+</form>
+
+</div>

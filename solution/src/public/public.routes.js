@@ -39,7 +39,7 @@ function routeConfig ($stateProvider) {
         menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
           return MenuService.getMenuItems($stateParams.category);
         }]
-      }
+      }    
     });
 }
 })();

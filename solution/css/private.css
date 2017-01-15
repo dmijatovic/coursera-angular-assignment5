@@ -1,0 +1,21 @@
+
+.private-site{
+    font-family:'Oxygen';
+}
+
+
+.ng-touched.ng-valid{
+    color: darkslategrey;
+    /*background-color:mediumseagreen;*/
+}
+
+.ng-touched.ng-invalid{
+    color:maroon;
+}
+
+.panel .well{
+    color:#61122F;
+}
+.panel table th{
+    color:#61122F;
+}
